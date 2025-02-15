@@ -1,5 +1,7 @@
 using System;
 
+//Manages the book, chapter, and verse number(s) of the scriptures
+//Returns formatted reference as a string
 class Reference
 {
     private string _book;
@@ -8,6 +10,7 @@ class Reference
     private int _endVerse;
     private bool _isRange;
 
+//Reference info for single verse scriptures
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -16,6 +19,7 @@ class Reference
         _isRange = false;
     }
 
+//Reference info for muli-verse scriptures
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         _book = book;

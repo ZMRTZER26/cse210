@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+//Creates and stores list of scriptures
+//Allows the random scripture selection and user input
 class Scripture
 {
     private Random _random;
@@ -11,6 +13,7 @@ class Scripture
         _random = new Random();
         _scriptureList = new List<ScriptureEntry>
         {
+            //Creates new instance. This allowed this part of the code to actually work. Stumbled upon it more by accident so still studying up on exactly how and why.
             new ScriptureEntry(new Reference("John", 3, 16),
                 "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."),
 
@@ -23,11 +26,13 @@ class Scripture
         };
     }
 
+//Randomly selected scripture
     public ScriptureEntry GetRandomScripture()
     {
         return _scriptureList[_random.Next(_scriptureList.Count)];
     }
 
+//User generated scripture
     public ScriptureEntry GetUserScripture()
     {
         Console.Write("\nEnter the book name: ");
@@ -38,7 +43,8 @@ class Scripture
 
         Console.Write("Enter the verse number: ");
         int verse = int.Parse(Console.ReadLine().Trim());
-
+        
+        //Allows for multi-verse scriptures
         Console.Write("Is this a range of verses? (yes/no): ");
         string isRange = Console.ReadLine().Trim().ToLower();
 

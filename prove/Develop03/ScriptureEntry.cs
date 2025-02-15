@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+//Manages scripture text
+//Controls how scriptures are displayed and hidden
 class ScriptureEntry
 {
     private Reference _reference;
@@ -48,7 +50,8 @@ class ScriptureEntry
             visibleWords.RemoveAt(index);
         }
     }
-
+    
+//Checks if all words are hidden
     public bool IsFullyHidden()
     {
         foreach (Word word in _words)

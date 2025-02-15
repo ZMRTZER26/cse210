@@ -10,6 +10,8 @@ class Program
         Scripture scripture = new Scripture();
         ScriptureEntry selectedScripture;
 
+        //Allow for user to input their own scripture for memorization
+        //Otherwise a random scripture from the list in Scripture.cs will be selected
         Console.WriteLine("Would you like to enter your own scripture? (yes/no)");
         string choice = Console.ReadLine().Trim().ToLower();
 
@@ -36,6 +38,8 @@ class Program
                 break;
             }
 
+            //Defaultly hides 2 words at a time
+            //Change the number inside the parenthesis to adjust this as needed
             selectedScripture.HideWords(2);
             Console.Clear();
             selectedScripture.Display();

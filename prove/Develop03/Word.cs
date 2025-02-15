@@ -1,5 +1,6 @@
 using System;
-
+//Handles the individual words from the displayed scripture
+//Checks and marks hidden words and returns the appropriate display
 class Word
 {
     private string _text;
