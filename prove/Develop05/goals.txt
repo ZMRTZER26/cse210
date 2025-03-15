@@ -1,0 +1,6 @@
+50
+SimpleGoal,Read a book,Finish reading one book,10,True
+ChecklistGoal,Exercise,Work out at least 5 times,5,20,5,5
+EternalGoal,Scriptures,Study Scriptures Daily,5
+SimpleGoal,Daily Challenge,Avoid social media for an hour,10,True
+SimpleGoal,Daily Challenge,Write down three things you're grateful for,10,False
