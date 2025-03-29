@@ -1,0 +1,7 @@
+
+
+Character 1
+Setting
+Write a scene with only dialogue.
+A cursed painting changes every time someone looks away.
+200,1,50000
