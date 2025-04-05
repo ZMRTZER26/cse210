@@ -1,31 +1,37 @@
 using System;
+using System.Collections.Generic;
 
+// Tracks word count progress for the designated story
+// Future itterations could track further progress such as goals, chapters, etc.
+// Inherits from WritingTool overriding the Run() method
 class ProgressTracker : WritingTool
 {
-    private int _wordCount = 0;
-    private int _dailyStreak = 0;
-    private int _goal = 50000;
-
-    public override void DisplayMenu()
+    // Override the Run() method
+    public override void Run(Dictionary<string, Dictionary<string, List<string>>> sessionData)
     {
-        Console.WriteLine("\n--- Progress Tracker ---");
-        Console.WriteLine($"Total Words: {_wordCount} | Streak: {_dailyStreak} days | Goal: {_goal} words");
+        // Prompt the user to enter the title of the story being tracked
+        Console.Write("Enter the story title you want to track progress for: ");
+        string title = Console.ReadLine();
 
-        Console.Write("Enter words written today: ");
-        if (int.TryParse(Console.ReadLine(), out int words) && words > 0)
+        // Prompt user to enter the number of words they wrote
+        Console.Write("Enter the number of words written today: ");
+        string wordCount = Console.ReadLine();
+
+        // Checks that the "Progress" category exists
+        // If not, it creates a new entry for the story title
+        if (!sessionData.ContainsKey("Progress"))
         {
-            _wordCount += words;
-            _dailyStreak++;
-            Console.WriteLine($"You've written {words} words today!");
+            sessionData["Progress"] = new Dictionary<string, List<string>>();
         }
-    }
+        if (!sessionData["Progress"].ContainsKey(title))
+        {
+            sessionData["Progress"][title] = new List<string>();
+        }
 
-    public override string ExportData() => $"{_wordCount},{_dailyStreak},{_goal}";
-    public override void ImportData(string data)
-    {
-        string[] parts = data.Split(',');
-        int.TryParse(parts[0], out _wordCount);
-        int.TryParse(parts[1], out _dailyStreak);
-        int.TryParse(parts[2], out _goal);
+        // Add the word count entry to the progress data for the given story title
+        sessionData["Progress"][title].Add($"Words Written: {wordCount}");
+
+        // This message confirms that the progress was recorded
+        Console.WriteLine($"Progress recorded: {wordCount} words for '{title}'.");
     }
 }

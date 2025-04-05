@@ -1,7 +1,32 @@
+--- Prompts ---
+Story: Prompts
+Write about a character who can only speak the truth.
+Describe a world where magic is illegal.
 
+--- Daily Challenges ---
+Story: Challenges
+Describe a setting using all five senses.
+Write a scene from the perspective of an inanimate object.
 
-Character 1
-Setting
-Write a scene with only dialogue.
-A cursed painting changes every time someone looks away.
-200,1,50000
+--- Stories ---
+Story: Test
+Story: Story 2
+
+--- Characters ---
+Story: Test
+Name
+Story: Story 2
+Name 2
+
+--- Worldbuilding ---
+Story: Test
+Magic Stuff is fjsdaklfjiofjewiofjowsifjisdjfosiadjfoifjdsio
+Story: Story 2
+Setting Stuff for Story 2
+
+--- Progress ---
+Story: Test
+Words Written: 139
+Story: Story 2
+Words Written: 239
+

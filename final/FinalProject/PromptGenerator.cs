@@ -1,18 +1,33 @@
 using System;
+using System.Collections.Generic;
 
+// Provides random writing prompts for the user
+// Inherits from WritingTool overriding the Run() method
 class PromptGenerator : WritingTool
 {
-    private string _lastPrompt;
-
-    public override void DisplayMenu()
+    private List<string> _prompts = new List<string>
     {
-        Console.WriteLine("\n--- Writing Prompt Generator ---");
-        string[] prompts = { "Write about a lost traveler.", "Describe a mysterious object.", "Create a dialogue-only story." };
-        Random rand = new Random();
-        _lastPrompt = prompts[rand.Next(prompts.Length)];
-        Console.WriteLine("Prompt: " + _lastPrompt);
-    }
+        "Write about a character who can only speak the truth.",
+        "Describe a world where magic is illegal.",
+        "Write a scene where a hero meets their villain for the first time."
+    };
 
-    public override string ExportData() => _lastPrompt;
-    public override void ImportData(string data) => _lastPrompt = data;
+    // Overried the Run() method
+    public override void Run(Dictionary<string, Dictionary<string, List<string>>> sessionData)
+    {
+        // Randomize the prompts selected from the list
+        Random rand = new Random();
+        string prompt = _prompts[rand.Next(_prompts.Count)];
+
+        Console.WriteLine($"Prompt: {prompt}");
+
+        // Checks that the "Prompts" category exists
+        if (!sessionData.ContainsKey("Prompts"))
+        {
+            // If the category does not exist, creates a dictionary with an empty "Prompts" list
+            sessionData["Prompts"] = new Dictionary<string, List<string>> { { "Prompts", new List<string>() } };
+        }
+        // Adds the generated prompt tot he "Prompts" category
+        sessionData["Prompts"]["Prompts"].Add(prompt);
+    }
 }

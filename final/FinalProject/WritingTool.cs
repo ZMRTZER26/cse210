@@ -1,6 +1,8 @@
+using System;
+using System.Collections.Generic;
+
+// Abstract base class
 abstract class WritingTool
 {
-    public abstract void DisplayMenu();
-    public virtual string ExportData() => "";
-    public virtual void ImportData(string data) { }
+    public abstract void Run(Dictionary<string, Dictionary<string, List<string>>> sessionData);
 }
